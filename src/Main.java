@@ -13,7 +13,7 @@ public class Main {
         System.out.println("****** Add Student ********");
         st.addStudent(students, new Student("BH001","Tran Tuan Thanh", 8.0));
 
-        st.addStudent(students, new Student("BH002","Nguyen Tien Nma", 7.5));
+        st.addStudent(students, new Student("BH002","Nguyen Tien Nam", 7.5));
 
         st.addStudent(students, new Student("BH003","Tran Viet Anh", 6.0));
         System.out.println("********* List data of students **********");
