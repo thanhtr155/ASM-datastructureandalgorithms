@@ -46,8 +46,12 @@ public class Main {
             System.out.println("ID = " + s.id +" , fullName = " + s.fullName + " , mark = " + s.mark + " , rank = " + s.rank);
         }
         System.out.println("********************* Remove Student ***************************");
-        ArrayListRemoveStudent removeSt = new ArrayListRemoveStudent();
-        removeSt.removeStudentById(students, "BH009");
+        try {
+            ArrayListRemoveStudent removeSt = new ArrayListRemoveStudent();
+            removeSt.removeStudentById(students, "BH009");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error removing student: " + e.getMessage());
+        }
         System.out.println("********* List data of students after removed by ID **********");
         for (Student s : students){
             System.out.println("ID = " + s.id +" , fullName = " + s.fullName + " , mark = " + s.mark + " , rank = " + s.rank);
