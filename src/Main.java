@@ -11,25 +11,36 @@ public class Main {
         ArrayList<Student> students = new ArrayList<Student>();
         ArrayListAddStudent st = new ArrayListAddStudent();
         System.out.println("****** Add Student ********");
-        st.addStudent(students, new Student("BH001","Tran Tuan Thanh", 8.0));
-
-        st.addStudent(students, new Student("BH002","Nguyen Tien Nam", 7.5));
-
-        st.addStudent(students, new Student("BH003","Tran Viet Anh", 6.0));
+        try {
+            st.addStudent(students, new Student("BH001", "Tran Tuan Thanh", 8.0));
+            st.addStudent(students, new Student("BH002", "Nguyen Tien Nam", 7.5));
+            st.addStudent(students, new Student("BH003", "Tran Viet Anh", 6.0));
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error adding student: " + e.getMessage());
+        }
         System.out.println("********* List data of students **********");
         for (Student s : students){
             System.out.println("ID = " + s.id +" , fullName = " + s.fullName + " , mark = " + s.mark + " , rank = " + s.rank);
         }
 
         System.out.println("********************** Edit Student ****************************");
-        ArrayListEditStudent edit = new ArrayListEditStudent();
-        edit.editStudent(students, 1, new Student("BH009", "Nguyen Manh Hung", 4));
+        try {
+            ArrayListEditStudent edit = new ArrayListEditStudent();
+            edit.editStudent(students, 1, new Student("BH009", "Nguyen Manh Hung", 4));
+        } catch (Exception e) {
+            System.out.println("Error editing student: " + e.getMessage());
+        }
         System.out.println("********* List data of students after updated **********");
         for (Student s : students){
             System.out.println("ID = " + s.id +" , fullName = " + s.fullName + " , mark = " + s.mark + " , rank = " + s.rank);
         }
         System.out.println("********* Edit Student By Id **********");
-        edit.editStudentById(students, "BH009", new Student("BH009", "Ngo Phuong Nam", 9.0));
+        try {
+            ArrayListEditStudent edit = new ArrayListEditStudent();
+            edit.editStudentById(students, "BH009", new Student("BH009", "Ngo Phuong Nam", 9.0));
+        } catch (Exception e) {
+            System.out.println("Error editing student: " + e.getMessage());
+        }
         System.out.println("********* List data of students after updated by ID **********");
         for (Student s : students){
             System.out.println("ID = " + s.id +" , fullName = " + s.fullName + " , mark = " + s.mark + " , rank = " + s.rank);
@@ -42,13 +53,17 @@ public class Main {
             System.out.println("ID = " + s.id +" , fullName = " + s.fullName + " , mark = " + s.mark + " , rank = " + s.rank);
         }
         System.out.println("********************* Binary Search Student By Id ***************************");
-        ArrayListSearchStudent searchSt = new ArrayListSearchStudent();
-        String numberId = "BH001";
-        int findSt = searchSt.binarySearch(students, numberId);
-        if(findSt == -1){
-            System.out.println("Can not found id = " + numberId);
-        } else {
-            System.out.println("found id = " + numberId);
+        try {
+            ArrayListSearchStudent searchSt = new ArrayListSearchStudent();
+            String numberId = "BH001";
+            int findSt = searchSt.binarySearch(students, numberId);
+            if (findSt == -1) {
+                System.out.println("Cannot find ID = " + numberId);
+            } else {
+                System.out.println("Found ID = " + numberId);
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error searching student: " + e.getMessage());
         }
 
         System.out.println("************** Sort Student by ID ***************");

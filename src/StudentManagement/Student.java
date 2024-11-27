@@ -9,6 +9,9 @@ public class Student  {
     public String rank;
 
     public Student(String id, String fullName, double mark){
+        if (mark < 0 || mark > 10) {
+            throw new IllegalArgumentException("Mark must be between 0 and 10");
+        }
         this.id = id;
         this.fullName = fullName;
         this.mark = mark;
@@ -46,17 +49,6 @@ public class Student  {
         this.mark = mark;
     }
 
-    /*
-    @Override
-    public int compareTo(Student compareStu) {
-        if(this.mark < compareStu.getMark()){
-            return  -1;
-        } else if (compareStu.getMark() < this.mark) {
-            return 1;
-        }
-        return 0;
-    }
-     */
     public static Comparator<Student> IdStudentComparator = new Comparator<Student>() {
         public int compare(Student o1, Student o2) {
             String idStu1 = o1.getId().toUpperCase();
